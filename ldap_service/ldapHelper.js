@@ -24,6 +24,9 @@ function convertLdapEntry(qId, ogid, entry) {
 
 var fetchData = function (client, dnGroup, opts, queryId, toDB) {
     client.search(dnGroup, opts, function (err, res) {
+        if(err){
+            console.log('LDAP fetch Error! ' + err.message)
+            }
         res.on('searchEntry', function (entry) {
             var gid = objectGuidToString(entry.raw.objectGUID);
             count++;

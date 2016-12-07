@@ -35,5 +35,5 @@ ldap1["opts"] = {
 
 
 rabbitmqHelper.sendTask('google', JSON.stringify(oa1));
-//rabbitmqHelper.sendTask('google', JSON.stringify(oa2));
-//rabbitmqHelper.sendTask('google',JSON.stringify(ldap1));
+rabbitmqHelper.sendTask('google', JSON.stringify(oa2));
+rabbitmqHelper.sendTask('google', JSON.stringify(ldap1));

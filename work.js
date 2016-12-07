@@ -1,4 +1,4 @@
-var radditmqHelper = require('./mq_service/radditHelper');
+var rabbitmqHelper = require('./mq_service/rabbitHelper');
 var members = require('./google_service/memberList');
 var ldapHeler = require('./ldap_service/ldapHelper');
 var google = require('googleapis');
@@ -41,6 +41,6 @@ function processGoogle(queryId, msg)
 }
 
 
-radditmqHelper.consumeTask('google', apiCall);
+rabbitmqHelper.consumeTask('google', apiCall);
 
 //radditmqHelper.consumeTask('ldap', apiCall);

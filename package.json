@@ -1,0 +1,21 @@
+{
+  "name": "ess",
+  "version": "1.0.0",
+  "description": "",
+  "main": "work.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node work.js"
+  },
+  "author": "Jing Zhang",
+  "license": "ISC",
+  "dependencies": {
+    "amqplib": "^0.5.1",
+    "google-auth-library": "^0.9.10",
+    "googleapi": "^1.0.2",
+    "googleapis": "^15.0.0",
+    "ldapjs": "^1.0.1",
+    "mongodb": "^2.2.12",
+    "node-uuid": "^1.4.7"
+  }
+}

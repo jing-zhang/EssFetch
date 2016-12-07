@@ -33,19 +33,20 @@ function processLdap(queryId, msg) {
             }
             else {
                 mongodbHelper.insertObjects(stamp, 'stamps');
-                //Generate ldap Client
-                var client = ldapHeler.buildClient(msg.ldapUrl, msg.ou, msg.password);
-                //Fetch Data
-                ldapHeler.fetchData(client, msg.dnGroup, msg.opts, queryId, saveToDB);
+                fetchLdap(msg, queryId, saveToDB)
             }
         });
     }
     else {
-        //Generate ldap Client
-        var client = ldapHeler.buildClient(msg.ldapUrl, msg.ou, msg.password);
-        //Fetch Data
-        ldapHeler.fetchData(client, msg.dnGroup, msg.opts, queryId, saveToDB);
+        fetchLdap(msg, queryId, saveToDB)
     }
+}
+
+function fetchLdap(msg, queryId, saveToDB) {
+    //Generate ldap Client
+    var client = ldapHeler.buildClient(msg.ldapUrl, msg.ou, msg.password);
+    //Fetch Data
+    ldapHeler.fetchData(client, msg.dnGroup, msg.opts, queryId, saveToDB);
 }
 
 function processGoogle(queryId, msg) {
@@ -64,19 +65,20 @@ function processGoogle(queryId, msg) {
             }
             else {
                 mongodbHelper.insertObjects(stamp, 'stamps');
-                //Generate OauthCredtial Client
-                var client = members.buildOauthClient(msg.clientId, msg.clientSecret, msg.refreshToken)
-                //Fetch Data
-                members.fetchMembers(client, msg.groupKey, queryId, saveToDB);
+                fetchGoogle(msg, queryId, saveToDB);
             }
         });
     }
     else {
-        //Generate OauthCredtial Client
-        var client = members.buildOauthClient(msg.clientId, msg.clientSecret, msg.refreshToken)
-        //Fetch Data
-        members.fetchMembers(client, msg.groupKey, queryId, saveToDB);
+        fetchGoogle(msg, queryId, saveToDB);
     }
+}
+
+function fetchGoogle(msg, queryId, saveToDB) {
+    //Generate OauthCredtial Client
+    var client = members.buildOauthClient(msg.clientId, msg.clientSecret, msg.refreshToken)
+    //Fetch Data
+    members.fetchMembers(client, msg.groupKey, queryId, saveToDB);
 }
 
 

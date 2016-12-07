@@ -1,37 +1,37 @@
 var rabbitmqHelper = require('./mq_service/rabbitHelper');
 
-var oa1 = {};
-oa1["clientId"] = '789069923461-2ba0jevmn0p6pj0nb8fl5psq0m76mji9.apps.googleusercontent.com';
-oa1["clientSecret"] = 'otj25guHi5tkzl58R06buxpb';
-oa1["refreshToken"] = '1/rqLRtabmwjJcRZX6DZvHfqyFO5RVcHA0Szcihc5o7YCjtRG4-j9tSCQmqzSBmgOA';
-oa1["accessToken"] = 'ya29.Ci-GA1N7xMP-TEfYSButcKeN4yvKUJ1Ooc4Jc7gRRTtq6dDOwOZd0OIPbmlhnAY2e';
-oa1["groupKey"] = '000596@appsdemo.sharpschool.com';
-oa1["type"] = 'google';
+var gugle1 = {};
+gugle1["clientId"] = '789069923461-2ba0jevmn0p6pj0nb8fl5psq0m76mji9.apps.googleusercontent.com';
+gugle1["clientSecret"] = 'otj25guHi5tkzl58R06buxpb';
+gugle1["refreshToken"] = '1/rqLRtabmwjJcRZX6DZvHfqyFO5RVcHA0Szcihc5o7YCjtRG4-j9tSCQmqzSBmgOA';
+gugle1["accessToken"] = 'ya29.Ci-GA1N7xMP-TEfYSButcKeN4yvKUJ1Ooc4Jc7gRRTtq6dDOwOZd0OIPbmlhnAY2e';
+gugle1["groupKey"] = '000596@appsdemo.sharpschool.com';
+gugle1["type"] = 'google';
 
 
-var oa2 = {};
-oa2["clientId"] = '789069923461-2ba0jevmn0p6pj0nb8fl5psq0m76mji9.apps.googleusercontent.com';
-oa2["clientSecret"] = 'otj25guHi5tkzl58R06buxpb';
-oa2["refreshToken"] = '1/rqLRtabmwjJcRZX6DZvHfqyFO5RVcHA0Szcihc5o7YCjtRG4-j9tSCQmqzSBmgOA';
-oa2["accessToken"] = 'ya29.Ci-GA1N7xMP-TEfYSButcKeN4yvKUJ1Ooc4Jc7gRRTtq6dDOwOZd0OIPbmlhnAY2e';
-oa2["groupKey"] = 'group2@appsdemo.sharpschool.com';
-oa2["type"] = 'google';
+var gugle2 = {};
+gugle2["clientId"] = '789069923461-2ba0jevmn0p6pj0nb8fl5psq0m76mji9.apps.googleusercontent.com';
+gugle2["clientSecret"] = 'otj25guHi5tkzl58R06buxpb';
+gugle2["refreshToken"] = '1/rqLRtabmwjJcRZX6DZvHfqyFO5RVcHA0Szcihc5o7YCjtRG4-j9tSCQmqzSBmgOA';
+gugle2["accessToken"] = 'ya29.Ci-GA1N7xMP-TEfYSButcKeN4yvKUJ1Ooc4Jc7gRRTtq6dDOwOZd0OIPbmlhnAY2e';
+gugle2["groupKey"] = 'group2@appsdemo.sharpschool.com';
+gugle2["type"] = 'google';
 
-var oa3 = {};
-oa3["clientId"] = '789069923461-2ba0jevmn0p6pj0nb8fl5psq0m76mji9.apps.googleusercontent.com';
-oa3["clientSecret"] = 'otj25guHi5tkzl58R06buxpb';
-oa3["refreshToken"] = '1/rqLRtabmwjJcRZX6DZvHfqyFO5RVcHA0Szcihc5o7YCjtRG4-j9tSCQmqzSBmgOA';
-oa3["accessToken"] = 'ya29.Ci-GA1N7xMP-TEfYSButcKeN4yvKUJ1Ooc4Jc7gRRTtq6dDOwOZd0OIPbmlhnAY2e';
-oa3["groupKey"] = 'group3@appsdemo.sharpschool.com';
-oa3["type"] = 'google';
+var gugle3 = {};
+gugle3["clientId"] = '789069923461-2ba0jevmn0p6pj0nb8fl5psq0m76mji9.apps.googleusercontent.com';
+gugle3["clientSecret"] = 'otj25guHi5tkzl58R06buxpb';
+gugle3["refreshToken"] = '1/rqLRtabmwjJcRZX6DZvHfqyFO5RVcHA0Szcihc5o7YCjtRG4-j9tSCQmqzSBmgOA';
+gugle3["accessToken"] = 'ya29.Ci-GA1N7xMP-TEfYSButcKeN4yvKUJ1Ooc4Jc7gRRTtq6dDOwOZd0OIPbmlhnAY2e';
+gugle3["groupKey"] = 'group3@appsdemo.sharpschool.com';
+gugle3["type"] = 'google';
 
-var oa4 = {};
-oa4["clientId"] = '789069923461-2ba0jevmn0p6pj0nb8fl5psq0m76mji9.apps.googleusercontent.com';
-oa4["clientSecret"] = 'otj25guHi5tkzl58R06buxpb';
-oa4["refreshToken"] = '1/rqLRtabmwjJcRZX6DZvHfqyFO5RVcHA0Szcihc5o7YCjtRG4-j9tSCQmqzSBmgOA';
-oa4["accessToken"] = 'ya29.Ci-GA1N7xMP-TEfYSButcKeN4yvKUJ1Ooc4Jc7gRRTtq6dDOwOZd0OIPbmlhnAY2e';
-oa4["groupKey"] = 'testing4567@appsdemo.sharpschool.com';
-oa4["type"] = 'google';
+var gugle4 = {};
+gugle4["clientId"] = '789069923461-2ba0jevmn0p6pj0nb8fl5psq0m76mji9.apps.googleusercontent.com';
+gugle4["clientSecret"] = 'otj25guHi5tkzl58R06buxpb';
+gugle4["refreshToken"] = '1/rqLRtabmwjJcRZX6DZvHfqyFO5RVcHA0Szcihc5o7YCjtRG4-j9tSCQmqzSBmgOA';
+gugle4["accessToken"] = 'ya29.Ci-GA1N7xMP-TEfYSButcKeN4yvKUJ1Ooc4Jc7gRRTtq6dDOwOZd0OIPbmlhnAY2e';
+gugle4["groupKey"] = 'testing4567@appsdemo.sharpschool.com';
+gugle4["type"] = 'google';
 
 var ldap1 = {};
 ldap1["ldapUrl"] = 'ldap://192.168.1.145:389';
@@ -81,11 +81,10 @@ ldap3["opts"] = {
     }
 };
 
-
-rabbitmqHelper.sendTask('google', JSON.stringify(oa1));
-// rabbitmqHelper.sendTask('google', JSON.stringify(oa2));
-// rabbitmqHelper.sendTask('google', JSON.stringify(oa3));
-// rabbitmqHelper.sendTask('google', JSON.stringify(oa4));
+rabbitmqHelper.sendTask('google', JSON.stringify(gugle1));
+// rabbitmqHelper.sendTask('google', JSON.stringify(gugle2));
+// rabbitmqHelper.sendTask('google', JSON.stringify(gugle3));
+// rabbitmqHelper.sendTask('google', JSON.stringify(gugle4));
 // rabbitmqHelper.sendTask('google', JSON.stringify(ldap1));
 // rabbitmqHelper.sendTask('google', JSON.stringify(ldap2));
 // rabbitmqHelper.sendTask('google', JSON.stringify(ldap3));

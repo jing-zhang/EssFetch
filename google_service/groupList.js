@@ -40,7 +40,25 @@ function fetchPageGroups(oauth2Client,pageToken,queryId,saveToDB,callback) {
   });
 }
 
+var buildStampObject = function (queryId, clientId, groupKey) {
+  var now = new Date();
+  var stampObject = {
+    queryId: queryId,
+    clientId: clientId,
+    groupKey: groupKey,
+    startTime: now,
+    expireTime: new Date(now.getTime() + (3 * 3600 * 1000))
+  }
 
+  return stampObject;
+};
+
+var buildOauthClient = function(clientID, clientSecret, refreshToken) {
+  var auth = new googleAuth();
+  var oauth2Client = new auth.OAuth2(clientID, clientSecret, null);
+  oauth2Client.credentials.refresh_token = refreshToken;
+  return oauth2Client;
+};
 
 function FetchGroups(oauth2Client, queryId, saveToDB)
 {
@@ -48,5 +66,7 @@ function FetchGroups(oauth2Client, queryId, saveToDB)
 }
 
 module.exports = {
-    fetchGroups : FetchGroups
+    fetchGroups : FetchGroups,
+    buildStampObject: buildStampObject,
+    buildOauthClient: buildOauthClient
 }

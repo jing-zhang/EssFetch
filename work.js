@@ -1,43 +1,39 @@
 var rabbitmqHelper = require('./mq_service/rabbitHelper');
 var members = require('./google_service/memberList');
 var ldapHeler = require('./ldap_service/ldapHelper');
-var google = require('googleapis');
-var googleAuth = require('google-auth-library');
+var mongodbHelper = require('./db_service/mongodbHelper');
 var uuid = require('node-uuid')
-var saveToDB = false;
+var saveToDB = true;
 
 
 var apiCall = function apiCall(msg) {
     //QueryId StampID
     var queryId = uuid.v1();
-    var stamp = {};
-    if(msg.type === 'ldap'){
+    if (msg.type === 'ldap') {
         processLdap(queryId, msg)
-    }else{
+    } else {
         processGoogle(queryId, msg)
     }
 }
 
-function processLdap(queryId, msg)
-{
-    stamp = ldapHeler.buildStampObject(queryId, msg.ldapUrl, msg.ou, msg.dnGroup);
-    if(saveToDB)
-        mongodbHelper.insertObjects(stampObject, 'stamps');
+function processLdap(queryId, msg) {
+    var stamp = ldapHeler.buildStampObject(queryId, msg.ldapUrl, msg.ou, msg.dnGroup);
+    if (saveToDB)
+        mongodbHelper.insertObjects(stamp, 'stamps');
+    //Generate ldap Client
     var client = ldapHeler.buildClient(msg.ldapUrl, msg.ou, msg.password);
     //Fetch Data
-    ldapHeler.fetchData(client,msg.dnGroup, msg.opts, queryId, saveToDB);
+    ldapHeler.fetchData(client, msg.dnGroup, msg.opts, queryId, saveToDB);
 }
 
-function processGoogle(queryId, msg)
-{
-    stamp = members.buildStampObject(queryId,msg.clientId, msg.groupKey);
-    if(saveToDB)
-        mongodbHelper.insertObjects(stampObject, 'stamps');
-    var auth = new googleAuth();
-    var oauth2Client = new auth.OAuth2(msg.clientId, msg.clientSecret, null);
-    oauth2Client.credentials.refresh_token = msg.refreshToken;
+function processGoogle(queryId, msg) {
+    var stamp = members.buildStampObject(queryId, msg.clientId, msg.groupKey);
+    if (saveToDB)
+        mongodbHelper.insertObjects(stamp, 'stamps');
+    //Generate OauthCredtial Client
+    var client = members.buildOauthClient(msg.clientId, msg.clientSecret, msg.refreshToken)
     //Fetch Data
-    members.fetchMembers(oauth2Client,msg.groupKey,queryId, saveToDB);
+    members.fetchMembers(client, msg.groupKey, queryId, saveToDB);
 }
 
 

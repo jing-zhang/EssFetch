@@ -48,6 +48,7 @@ function FetchMembers(oauth2Client, groupKey, queryId, saveToDB) {
 var buildStampObject = function (queryId, clientId, groupKey) {
   var now = new Date();
   var stampObject = {
+    type: 'google',
     queryId: queryId,
     clientId: clientId,
     groupKey: groupKey,

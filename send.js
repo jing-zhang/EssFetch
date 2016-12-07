@@ -83,10 +83,10 @@ ldap3["opts"] = {
 
 
 rabbitmqHelper.sendTask('google', JSON.stringify(oa1));
-rabbitmqHelper.sendTask('google', JSON.stringify(oa2));
-rabbitmqHelper.sendTask('google', JSON.stringify(oa3));
-rabbitmqHelper.sendTask('google', JSON.stringify(oa4));
-rabbitmqHelper.sendTask('google', JSON.stringify(ldap1));
-rabbitmqHelper.sendTask('google', JSON.stringify(ldap2));
-rabbitmqHelper.sendTask('google', JSON.stringify(ldap3));
+// rabbitmqHelper.sendTask('google', JSON.stringify(oa2));
+// rabbitmqHelper.sendTask('google', JSON.stringify(oa3));
+// rabbitmqHelper.sendTask('google', JSON.stringify(oa4));
+// rabbitmqHelper.sendTask('google', JSON.stringify(ldap1));
+// rabbitmqHelper.sendTask('google', JSON.stringify(ldap2));
+// rabbitmqHelper.sendTask('google', JSON.stringify(ldap3));
 //process.exit();

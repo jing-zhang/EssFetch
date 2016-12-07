@@ -61,6 +61,7 @@ var buildClient = function (url, ou, password) {
 var buildStampObject = function (queryId, ldapUrl, ou, dnGroup) {
     var now = new Date();
     var stampObject = {
+        type: 'ldap',
         queryId: queryId,
         url: ldapUrl,
         ou: ou,

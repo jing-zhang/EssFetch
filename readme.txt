@@ -45,8 +45,8 @@ Step 2
     Retieve refresh_token at the file will be saved in \home\myNmae\.credentials
 
     {
-    "access_token":"ya29.Ci-nAw-1Z7wJqOFw1oplRRS01KExNpNoirrltKY96hNnGM0fPjrQNPxXWlFCXHU8dQ",
-    "refresh_token":"1/rqLRtabmwjJcRZX6DZvHfqyFO5RVcHA0Szcihc5o7YCjtRG4-j9tSCQmqzSBmgOA",
+    "access_token":"xxxx",
+    "refresh_token":"xxx",
     "token_type":"Bearer",
     "expiry_date":1480609133776
     }

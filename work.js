@@ -84,4 +84,4 @@ function fetchGoogle(msg, queryId, saveToDB) {
 
 rabbitmqHelper.consumeTask('google', apiCall);
 
-//radditmqHelper.consumeTask('ldap', apiCall);
+rabbitmqHelper.consumeTask('ldap', apiCall);

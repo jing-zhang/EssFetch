@@ -1,0 +1,21 @@
+var mongoose = require('mongoose');
+
+mongoose.Promise = global.Promise;
+mongoose.connect('mongodb://localhost/ldap');
+
+var insertObj = function(obj){
+  obj.save(function(err) {
+    if (err) throw err;
+    console.log('Oject saved successfully!');
+  });
+}
+
+
+var findObj = function(obj, filter, callBackFunc){
+    obj.find(filter, callBackFunc);
+}
+
+module.exports={
+    insertObject : insertObj,
+    findObject : findObj
+}

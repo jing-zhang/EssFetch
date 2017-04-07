@@ -1,31 +1,28 @@
 var amqp = require('amqplib');
 var radditmqUrl = 'amqp://localhost';
 
-var consumeTask = function pickupTask(channel, callback) {
-  amqp.connect(radditmqUrl).then(function (conn) {
-    return conn.createChannel().then(function (ch) {
-      var ok = ch.assertQueue(channel, { durable: false });
-      ok = ok.then(function (_qok) {
-        return ch.consume(channel, function (msg) {
-          var messageBody = JSON.parse(msg.content.toString())
-          console.log(" [%s] Received '%s'", channel, msg.content.toString());
-          callback(messageBody);
-        }, { noAck: true });
-      });
+var consumeTask = function (channel, callback) {
+  amqp.connect(rabbitmqUrl, function(err, conn) {
+    conn.createChannel(function(err, ch) {
+        ch.assertQueue(channel, {durable: false});
+        console.log(" [*] Waiting for messages in %s. To exit press CTRL+C", channel);
+        ch.consume(channel, function(msg) {
+            console.log(" [x] Received %s", msg.content.toString());
+            callback(msg.content.toString());
+        }, {noAck: true});
     });
-  });
+});
 }
 
-var sendTask = function senderTask(channel, msg) {
-  amqp.connect(radditmqUrl).then(function (conn) {
-    return conn.createChannel().then(function (ch) {
-      var ok = ch.assertQueue(channel, { durable: false });
-      ok = ok.then(function (_qok) {
-        console.log("[%s] Sent '%s'", channel, JSON.stringify(msg));
-        return ch.sendToQueue(channel, new Buffer(msg));
+var sendTask = function (channel, msg) {
+  amqp.connect(rabbitmqUrl, function(err, conn) {
+      conn.createChannel(function(err, ch) {
+        ch.assertQueue(channel, {durable: false});
+        // Note: on Node 6 Buffer.from(msg) should be used
+        ch.sendToQueue(channel, new Buffer(msg));
+        console.log(" [x] Sent %s", msg);
       });
     });
-  });
 }
 
 
